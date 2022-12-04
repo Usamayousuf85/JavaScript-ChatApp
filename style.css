@@ -1,0 +1,150 @@
+body {
+    background: url(1.jpg) center no-repeat;
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+}
+h1{
+    font-size: 2em;
+    color: #901821;
+}
+h2{
+    color: #901821;
+}
+
+/* login Form Design */
+
+.form {
+    padding-top: 50px;
+    box-sizing: border-box;
+    background-color: transparent;
+    height: 300px;
+    max-width: 450px;
+    margin: 5% auto;
+    box-shadow: 5px 10px 10px #000;
+}
+#Email, #password, #name{
+    padding-left:4px;
+    margin: 3px;
+    width: 302px;
+    font-size: 1.2em;
+    background-color: transparent;
+    color: #901821;
+    border-color: #000;
+}
+.formbtn{
+    margin-top: 5px;
+    font-size: 1.1em;
+    padding: 4px;
+    background-color: green;
+    color: #fff;
+    border-radius: 0.2em;
+}
+
+/* Chat Design */
+
+.chatbox{
+    margin: auto;
+    margin-top: 30px;
+    min-height: 200px;
+    max-width: 500px;
+    background-color: transparent;
+    color: #901821;
+    font-size: 1.2em;
+    border: 2px solid #fff;
+}
+ul li{
+    list-style: none;
+}
+form{
+    margin-right: 127px;
+    margin-top: 4px;
+    color: #fff;
+}
+/* #root li{
+    margin-top: -15px;
+    font-size: 1.5em;
+    color: #901821;
+    margin-left: -15px;
+} */
+#message{
+    padding-left:4px;
+    width: 302px;
+    font-size: 1.2em;
+    background-color: transparent;
+    background-color: #fff;
+    border-color: #901821;
+}
+#sendbtn{
+    font-size: 1.2em;
+    background-color: green;
+    color: #fff;
+    border-radius: 0.2em;
+}
+#deletebtn{
+    font-size: 1.2em;
+    position: relative;
+    bottom: 29.5px;
+    left: 192px;
+    background-color: red;
+    color: #fff;
+    border-radius: 0.2em;
+}
+.form1 {
+    padding-top: 10px;
+    box-sizing: border-box;
+    background-color: transparent;
+    height: 200px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+.form1btn{
+    font-size: 1.2em;
+    background-color: red;
+    color: #fff;
+    border-radius: 0.2em;
+}
+.libtn{
+    background-color: red;
+    color: #fff;
+    border-radius: 0.2em;
+}
+
+@media screen and (min-width:300px) and (max-width:700px){
+    body{
+        min-height: 100vh;
+        background-color: #FFA07A;
+        color: #fff;
+        text-align: center;
+        background-image: none;
+    }
+    .form{
+        box-shadow: none;
+        border: 2px solid #fff;
+    }
+    form{
+        margin-right: 30px;
+        margin-top: 4px;
+        color: #fff;
+    }
+    #message{
+        width: 345px;
+        
+    }
+    #deletebtn{
+        top: 34px;
+        left: 95px;
+        font-size: 1em;
+    }
+    #sendbtn{
+        margin-top: 3px;
+    }
+    .form1btn{
+        font-size: 1em;
+        margin-left: -20px;
+        margin-right: 20px;
+    }
+    .form1{
+        margin: 0;
+    }
+}

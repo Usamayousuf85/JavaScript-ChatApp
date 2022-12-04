@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCrznhXYA3A2wo1hSKpbRMV0EkCx_nwhiA",
+            authDomain: "myweb-00.firebaseapp.com",
+            databaseURL: "https://myweb-00-default-rtdb.firebaseio.com",
+            projectId: "myweb-00",
+            storageBucket: "myweb-00.appspot.com",
+            messagingSenderId: "664882373389",
+            appId: "1:664882373389:web:411ad397206cb02885c644",
+            measurementId: "G-5QNYX0V9CK"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Chat App</h1>
+    <span id="error"></span>
+    <div class="form">
+        <input type="text" id="name" placeholder="Enter Your Name">
+        <br>
+        <input type="text" id="Email" placeholder="Email Address">
+        <br>
+        <input type="password" id="password" placeholder="Password">
+        <br>
+        <button class="formbtn" onclick="signup()" id="submit">Sign Up</button>
+        <button class="formbtn" onclick="login()">Log in</button>
+    </div>
+</body>
+<script src="app.js"></script>
+
+</html>
