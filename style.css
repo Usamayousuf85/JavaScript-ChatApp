@@ -4,11 +4,16 @@ body {
     height: 100vh;
     text-align: center;
 }
-h1{
-    font-size: 2em;
+body h1 {
+    margin-top: 35px;
+}
+
+h1 {
+    font-size: 3em;
     color: #901821;
 }
-h2{
+
+h2 {
     color: #901821;
 }
 
@@ -23,27 +28,43 @@ h2{
     margin: 5% auto;
     box-shadow: 5px 10px 10px #000;
 }
-#Email, #password, #name{
-    padding-left:4px;
-    margin: 3px;
+
+#Email,
+#password,
+#name,
+#Email1,
+#password1 {
+    padding-left: 4px;
+    margin: 5px;
     width: 302px;
     font-size: 1.2em;
     background-color: transparent;
     color: #901821;
     border-color: #000;
 }
-.formbtn{
-    margin-top: 5px;
+
+.formbtn {
+    margin-top: 15px;
     font-size: 1.1em;
-    padding: 4px;
+    padding: 5px;
     background-color: green;
     color: #fff;
     border-radius: 0.2em;
 }
 
+.signupbtn {
+    margin-top: 15px;
+    font-size: 1.1em;
+    padding: 4px;
+    background-color: green;
+    color: #fff;
+    border-radius: 0.2em;
+    width: 200px;
+}
+
 /* Chat Design */
 
-.chatbox{
+.chatbox {
     margin: auto;
     margin-top: 30px;
     min-height: 200px;
@@ -53,43 +74,49 @@ h2{
     font-size: 1.2em;
     border: 2px solid #fff;
 }
-ul li{
+
+ul li {
     list-style: none;
 }
-form{
+
+form {
     margin-right: 127px;
     margin-top: 4px;
     color: #fff;
 }
+
 /* #root li{
     margin-top: -15px;
     font-size: 1.5em;
     color: #901821;
     margin-left: -15px;
 } */
-#message{
-    padding-left:4px;
+#message {
+    padding-left: 4px;
     width: 302px;
     font-size: 1.2em;
     background-color: transparent;
     background-color: #fff;
     border-color: #901821;
 }
-#sendbtn{
+
+#sendbtn {
     font-size: 1.2em;
     background-color: green;
     color: #fff;
     border-radius: 0.2em;
 }
-#deletebtn{
+
+#deletebtn {
     font-size: 1.2em;
     position: relative;
-    bottom: 29.5px;
+    bottom: 28px;
     left: 192px;
     background-color: red;
     color: #fff;
     border-radius: 0.2em;
 }
+
 .form1 {
     padding-top: 10px;
     box-sizing: border-box;
@@ -98,53 +125,62 @@ form{
     max-width: 300px;
     margin: 0 auto;
 }
-.form1btn{
+
+.form1btn {
     font-size: 1.2em;
     background-color: red;
     color: #fff;
     border-radius: 0.2em;
 }
-.libtn{
+
+.libtn {
     background-color: red;
     color: #fff;
     border-radius: 0.2em;
 }
 
-@media screen and (min-width:300px) and (max-width:700px){
-    body{
+@media screen and (min-width:300px) and (max-width:700px) {
+    body {
         min-height: 100vh;
         background-color: #FFA07A;
         color: #fff;
         text-align: center;
         background-image: none;
     }
-    .form{
+
+    .form {
         box-shadow: none;
         border: 2px solid #fff;
     }
-    form{
+
+    form {
         margin-right: 30px;
         margin-top: 4px;
         color: #fff;
     }
-    #message{
+
+    #message {
         width: 345px;
-        
+
     }
-    #deletebtn{
+
+    #deletebtn {
         top: 34px;
         left: 95px;
         font-size: 1em;
     }
-    #sendbtn{
+
+    #sendbtn {
         margin-top: 3px;
     }
-    .form1btn{
+
+    .form1btn {
         font-size: 1em;
         margin-left: -20px;
         margin-right: 20px;
     }
-    .form1{
+
+    .form1 {
         margin: 0;
     }
 }

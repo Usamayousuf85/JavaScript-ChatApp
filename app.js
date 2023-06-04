@@ -1,19 +1,23 @@
 let signup = () => {
-    let email = document.getElementById('Email')
-    let password = document.getElementById('password')
-    var Name1 = document.getElementById('name')
+    let email = document.getElementById('Email').value
+    let password = document.getElementById('password').value
+    let name = document.getElementById('name').value
 
-    firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+    firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((result) => {
             // Signed in 
             var user = result.user;
+            alert('Account Created Successfully')
+            // console.log(user)
+            // ...
+            localStorage.setItem('userDisplayName', name);
+
             firebase.database().ref('users/' + user.uid).set({
                 email: user.email,
-                uid: user.uid
+                uid: user.uid,
+                name: name
             })
-            alert('Account Created Successfully')
-            console.log(result)
-            // ...
+            window.location = "Index.html"
         })
         .catch((error) => {
             var errorCode = error.code;
@@ -23,99 +27,51 @@ let signup = () => {
             // ..
         });
 
-    var mail = email.value = ""
-    var pass = password.value = ""
-    Name1.value = ""
+    document.getElementById('Email').value = "";
+    document.getElementById('password').value = "";
+    document.getElementById('name').value = "";
+}
+
+let IAccount = () => {
+    window.location = "Signup.html"
 }
 
 let login = () => {
-    let email = document.getElementById('Email')
-    let password = document.getElementById('password')
-    
-    firebase.auth().signInWithEmailAndPassword(email.value, password.value)
-    .then((result) => {
-        // Signed in
-        var user = ('user===>' + result.user);
-        window.location = "chat.html"
-        // ...
-    })
-    .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // document.getElementById('error').innerHTML = errorMessage.toUpperCase()
-        alert(errorMessage)
-    });
-    getname()
-    
-    var mail = email.value = ""
-    var pass = password.value = ""
-}
+    let email = document.getElementById('Email1').value
+    let password = document.getElementById('password1').value
 
-firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-        document.getElementById('Cemail').innerHTML = "Hello! " + user.email
-        // User is signed in.
-        console.log(user)
-        // firebase.database().ref('users').on("value", (Data) => {
-        //     Data.forEach((element) => {
-        //         let value = element.val()
-        //         if (value.uid != user.uid) {
-        //             if (document.getElementById('root') != null) {
-        //                 console.log('Current_user =>', user)
-        //                 document.getElementById('root').innerHTML += `<li><b>Chat User:</b> ${value.email} </li>`
-        //             }
-        //         }
-        //     })
-        // })
-
-    } else {
-        // No user is signed in.
-    }
-});
-
-let removeuser = () => {
-    firebase.database().ref('users').remove()
-    const user = firebase.auth().currentUser;
-
-    user.delete().then(() => {
-        // User deleted.
-        alert("User is Deleted")
-        window.location = "index.html"
-    })
-        .catch((error) => {
-            // An error ocurred
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((result) => {
+            // Signed in
+            var user = result.user;
+            // console.log('user===>', user)
             // ...
+            window.location = "Chat.html"
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // document.getElementById('error').innerHTML = errorMessage.toUpperCase()
+            alert(errorMessage)
         });
-}
 
-let signout = () => {
-    firebase.auth().signOut().then(() => {
-        // Sign-out successful.
-        window.location = "index.html"
-    }).catch((error) => {
-        // An error happened.
-    });
+    document.getElementById('Email1').value = "";
+    document.getElementById('password1').value = "";
 }
-
 // chatApp
 
-function getname() {
-    var Name = document.getElementById('name').value
-    sessionStorage.setItem("name", Name)
-
-    var Name1 = document.getElementById('name')
-    Name1.value = ""
+let gethead = () => {
+    document.getElementById('Cemail').innerHTML = "Hello " + displayName.toUpperCase()
 }
-
 function sendMessage() {
     // get message
     var message = document.getElementById("message").value;
     const user = firebase.auth().currentUser;
     // save in database
     firebase.database().ref("users").child("messages").push().set({
-        "sender": myName,
+        "sender": displayName,
         "message": message,
-        "uid" : user.uid
+        "uid": user.uid
     });
 
     var message1 = document.getElementById("message");
@@ -130,7 +86,7 @@ firebase.database().ref("users/messages").on("child_added", function (snapshot) 
     var li = document.createElement('li')
 
     li.setAttribute('id', 'messageli' + snapshot.key)
-    if (snapshot.val().sender == myName) {
+    if (snapshot.val().sender == displayName) {
         var delbtn = document.createElement('button')
         var delbtntext = document.createTextNode('Delete')
         delbtn.appendChild(delbtntext)
@@ -164,13 +120,38 @@ function deleteall() {
     const user = firebase.auth().currentUser;
     // console.log(user.uid)
     firebase.database().ref('users/messages').on("child_added", function (data) {
-    console.log(data.val())
-    
-    if(user.uid == data.val().uid){
-        firebase.database().ref("users/messages").child(data.key).remove();
-    }})
+        // console.log(data.val())
+
+        if (user.uid == data.val().uid) {
+            firebase.database().ref("users/messages").child(data.key).remove();
+        }
+    })
     alert('Chat Deleted')
     location.reload();
     document.getElementById('messageli' + snapshot.key).innerHTML += "This message has been removed";
     messages.innerHTML = ""
+}
+
+let removeuser = () => {
+    firebase.database().ref('users').remove()
+    const user = firebase.auth().currentUser;
+
+    user.delete().then(() => {
+        // User deleted.
+        alert("User is Deleted")
+        window.location = "index.html"
+    })
+        .catch((error) => {
+            // An error ocurred
+            // ...
+        });
+}
+
+let signout = () => {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location = "index.html"
+    }).catch((error) => {
+        // An error happened.
+    });
 }

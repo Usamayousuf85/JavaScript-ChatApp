@@ -9,7 +9,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
-
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
@@ -24,32 +23,21 @@
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-        var displayName = localStorage.getItem('userDisplayName');
-
-        // Use the display name as needed
-        // console.log(displayName);
-
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="gethead()">
+<body>
     <h1>Chat App</h1>
-    <center>
-        <h2 id="Cemail"></h2>
-        <ul id="root"></ul>
-        <div class="chatbox">
-            <ul id="messages"></ul>
-        </div>
-        <form onsubmit="return sendMessage();">
-            <input id="message" placeholder="Enter message" autocomplete="off">
-            <button id="sendbtn" type="submit">Send</button>
-        </form>
-        <button id="deletebtn" onclick=" deleteall()">Delete Chat</button>
-    </center>
-    <div class="form1">
-        <button class="form1btn" onclick="removeuser()">Delete user</button>
-        <button class="form1btn" onclick="signout()">Log Out</button>
+    <span id="error"></span>
+    <div class="form">
+        <input type="text" id="name" placeholder="Enter Your Name">
+        <br>
+        <input type="text" id="Email" placeholder="Email Address">
+        <br>
+        <input type="password" id="password" placeholder="Password">
+        <br>
+        <button class="signupbtn" onclick="signup()" id="submit">Sign Up</button>
     </div>
 </body>
 <script src="app.js"></script>
